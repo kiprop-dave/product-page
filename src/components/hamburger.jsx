@@ -7,6 +7,7 @@ const Menu = styled.div`
   height: 100vh;
   position: fixed;
   top: 0;
+  z-index: 2;
   background: rgba(36, 35, 35, 0.4);
 
   @media screen and (max-width: 600px) {

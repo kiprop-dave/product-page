@@ -30,6 +30,7 @@ const Bars = styled.div`
     width: 80%;
     border: solid 1px;
     margin-top: 0.4rem;
+    background-color: black;
 `
 const Logo = styled.div`
     background-image: url(/icons/logo.svg);

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './App.css'
 import Navbar from './components/navbar'
 import HamburgerMenu from './components/hamburger';
+import Product from './components/product';
 
 const Page = styled.div`
   width: 100vw;
@@ -43,6 +44,7 @@ function App() {
           menu &&
           <HamburgerMenu hide={hideMenu} />
         }
+        <Product />
       </AppContainer>
     </Page>
   )
