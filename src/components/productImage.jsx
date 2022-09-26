@@ -8,6 +8,10 @@ const Container = styled.div`
     height: 23rem;
     position: relative;
     z-index: 1;
+    
+    .product-image{
+        object-fit: cover;
+    }
 `
 const Image = styled.img`
     width: 100%;
@@ -25,7 +29,7 @@ function ProductImage() {
     return (
         <>
             <Container>
-                <Image src={images[imageIndex]} alt='sneakers' />
+                <Image src={images[imageIndex]} alt='sneakers' className='product-image' />
                 <Swipe left={'0'} source={'/icons/icon-previous.svg'}
                     action={swipeLeft} />
                 <Swipe right={'0'} source={'/icons/icon-next.svg'}

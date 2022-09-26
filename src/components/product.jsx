@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Context } from '../context/context';
 import ProductImage from './productImage';
-import Thumbnail from './thumbnail';
+import Thumbnails from './thumbnails';
 import ProductDetails from './productDetails';
 
 const Container = styled.div`
@@ -27,15 +26,6 @@ const Photos = styled.div`
         width: 100%;
     }
 `
-const ThumbnailsContainer = styled.div`
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-    
-    @media screen and (max-width: 600px) {
-        display: none;
-    }
-`
 const DetailsWrapper = styled.div`
     margin-right: 3%;
     width: 45%;
@@ -47,18 +37,14 @@ const DetailsWrapper = styled.div`
         padding-bottom: 2rem;
     }
 `
-function Product() {
-    const { thumbnails } = useContext(Context);
+function Product({ open }) {
 
-    const thumbnailElements = thumbnails.map(img => <Thumbnail key={img} source={img} />)
     return (
         <>
             <Container>
                 <Photos>
                     <ProductImage />
-                    <ThumbnailsContainer>
-                        {thumbnailElements}
-                    </ThumbnailsContainer>
+                    <Thumbnails open={open} />
                 </Photos>
                 <DetailsWrapper>
                     <ProductDetails />

@@ -95,6 +95,10 @@ const AddButton = styled.button`
     border: none;
     cursor: pointer;
 
+    &:hover{
+        opacity: 0.6;
+    }
+
     @media screen and (max-width: 600px) {
         width: 100%;
         margin-top: 0.5rem;
@@ -103,8 +107,22 @@ const AddButton = styled.button`
 
 function ProductDetails() {
     const { name, price, discount, buyMore, buyLess,
-        discountPrice, description, amountBought
+        discountPrice, description, amountBought,
+        addToCart
     } = useContext(Context);
+
+    const itemToAdd = {
+        name: name,
+        price: discountPrice,
+        amount: amountBought
+    }
+
+    function addItem() {
+        if (amountBought > 0) {
+            addToCart(itemToAdd)
+        }
+        return;
+    }
     return (
         <>
             <DetailsContainer>
@@ -120,13 +138,14 @@ function ProductDetails() {
                 </PriceContainer>
                 <Cart>
                     <Amount>
-                        <img src="/icons/icon-minus.svg" alt="remove" style={{ marginLeft: '0.5rem', cursor: 'pointer' }}
+                        <img src="/icons/icon-minus.svg" alt="remove"
+                            style={{ marginLeft: '0.5rem', cursor: 'pointer' }}
                             onClick={() => buyLess()} />
                         <h3>{amountBought}</h3>
                         <img src="/icons/icon-plus.svg" alt="add" style={{ marginRight: '0.5rem', cursor: 'pointer' }}
                             onClick={() => buyMore()} />
                     </Amount>
-                    <AddButton>
+                    <AddButton onClick={() => addItem()}>
                         <img src="/icons/icon-cart.svg" alt="cart" />
                         <h4 style={{ marginLeft: '1rem' }}>Add to cart</h4>
                     </AddButton>

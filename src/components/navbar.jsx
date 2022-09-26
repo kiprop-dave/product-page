@@ -104,7 +104,7 @@ const ProfileIcon = styled.div`
         }        
     }
 `
-export default function Navbar({ show }) {
+export default function Navbar({ show, cart }) {
     return (
         <NavbarContainer>
             <MenuIcon onClick={() => show()}>
@@ -121,7 +121,7 @@ export default function Navbar({ show }) {
                 <NavLink left={'2rem'}>Contact</NavLink>
             </NavLinks>
             <CartProfile>
-                <CartIcon>
+                <CartIcon onClick={() => cart()}>
                     <img src="/icons/icon-cart.svg" alt="cart" />
                 </CartIcon>
                 <ProfileIcon>
