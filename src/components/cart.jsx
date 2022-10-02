@@ -112,7 +112,7 @@ function Cart({ cart }) {
                     cartItems.name ?
                         <FullCart>
                             <Item>
-                                <Thumbnail source={thumbnails[imageIndex]} width={'4rem'} radius={'5px'} />
+                                <Thumbnail source={thumbnails[imageIndex]} width={'4rem'} radius={'5px'} opacity={false} />
                                 <Details>
                                     <p>{cartItems.name}</p>
                                     <p className='price'>{cartItems.price}.00 x {cartItems.amount}

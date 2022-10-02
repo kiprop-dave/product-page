@@ -43,7 +43,7 @@ function Product({ open }) {
         <>
             <Container>
                 <Photos>
-                    <ProductImage />
+                    <ProductImage open={open} />
                     <Thumbnails open={open} />
                 </Photos>
                 <DetailsWrapper>

@@ -14,13 +14,18 @@ const Arrow = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    display: ${({ isShown }) => isShown ? 'inline' : 'none'};
+
+    @media screen and (max-width: 600px){
+        display: ${({ isShown }) => isShown ? 'none' : 'inline'};
+    }
 `
 
-function Swipe({ left, right, source, action }) {
+function Swipe({ left, right, source, action, isShown }) {
     return (
         <>
             <Arrow left={left} right={right} source={source}
-                onClick={() => action()} />
+                onClick={() => action()} isShown={isShown} />
         </>
     )
 }

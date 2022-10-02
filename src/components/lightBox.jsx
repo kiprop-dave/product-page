@@ -14,6 +14,10 @@ const Nodal = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 600px){
+        display: none;
+    }
 `
 const Container = styled.div`
     width: 30%;
@@ -37,7 +41,7 @@ function LightBox({ close }) {
                 <Container>
                     <CloseIcon src='/icons/icon-close.svg' alt='close'
                         onClick={() => close()} />
-                    <ProductImage />
+                    <ProductImage isShown={true} />
                     <Thumbnails />
                 </Container>
             </Nodal>

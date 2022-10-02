@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Context } from '../context/context';
 import Swipe from './swipe';
@@ -8,6 +8,7 @@ const Container = styled.div`
     height: 23rem;
     position: relative;
     z-index: 1;
+    cursor: pointer;
     
     .product-image{
         object-fit: cover;
@@ -23,17 +24,17 @@ const Image = styled.img`
     }
 `
 
-function ProductImage() {
+function ProductImage({ isShown, open }) {
 
     const { images, imageIndex, swipeRight, swipeLeft } = useContext(Context);
     return (
         <>
-            <Container>
+            <Container onClick={() => open && open()}>
                 <Image src={images[imageIndex]} alt='sneakers' className='product-image' />
                 <Swipe left={'0'} source={'/icons/icon-previous.svg'}
-                    action={swipeLeft} />
+                    action={swipeLeft} isShown={isShown} />
                 <Swipe right={'0'} source={'/icons/icon-next.svg'}
-                    action={swipeRight} />
+                    action={swipeRight} isShown={isShown} />
             </Container>
         </>
     )

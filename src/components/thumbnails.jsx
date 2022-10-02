@@ -14,8 +14,12 @@ const ThumbnailsContainer = styled.div`
 `
 
 function Thumbnails({ open }) {
-    const { thumbnails } = useContext(Context);
-    const thumbnailElements = thumbnails.map(img => <Thumbnail key={img} source={img} open={open} />)
+    const { thumbnails, imageIndex: current } = useContext(Context);
+    const thumbnailElements = thumbnails.map((img, index) => {
+        return (
+            <Thumbnail key={img} source={img} open={open} current={current} index={index} opacity={true} />
+        )
+    })
 
     return (
         <>

@@ -44,6 +44,7 @@ const Discount = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    padding: 2px 7px 2px 7px;
 
 `
 const NoDiscount = styled.p`
@@ -63,7 +64,7 @@ const Cart = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 2rem;
+    height: 3rem;
 
     @media screen and (max-width: 600px) {
         flex-direction: column;
@@ -75,7 +76,7 @@ const Amount = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 45%;
     height: inherit;
 
@@ -86,7 +87,7 @@ const Amount = styled.div`
 const AddButton = styled.button`
     background-color: hsl(26, 100%, 55%);
     color: white;
-    border-radius: 6px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;

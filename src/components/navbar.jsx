@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { Context } from '../context/context';
 
 const NavbarContainer = styled.div`
     position: relative;
@@ -75,7 +76,6 @@ const CartProfile = styled.div`
     justify-content: space-between;
     height: inherit;
     width: 8rem;
-    /* border: solid 1px; */
 
     @media screen and (max-width: 600px) {
      width: 4.5rem;
@@ -85,6 +85,25 @@ const CartProfile = styled.div`
 const CartIcon = styled.div`
     position: relative;
     cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+const CartItems = styled.div`
+    position: absolute;
+    width: 1.2rem;
+    height: 0.8rem;
+    right: 0;
+    top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30%;
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    font-size: 12px;
 `
 const ProfileIcon = styled.div`
     height: 3rem;
@@ -105,6 +124,7 @@ const ProfileIcon = styled.div`
     }
 `
 export default function Navbar({ show, cart }) {
+    const { amountBought, cartItems } = useContext(Context);
     return (
         <NavbarContainer>
             <MenuIcon onClick={() => show()}>
@@ -123,6 +143,7 @@ export default function Navbar({ show, cart }) {
             <CartProfile>
                 <CartIcon onClick={() => cart()}>
                     <img src="/icons/icon-cart.svg" alt="cart" />
+                    {cartItems.name && <CartItems>{amountBought}</CartItems>}
                 </CartIcon>
                 <ProfileIcon>
                     <img src="/images/image-avatar.png" className='profile' alt="avatar" />
